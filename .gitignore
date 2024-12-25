@@ -1,4 +1,32 @@
-
-target/
-dbt_packages/
+# Logs and debug files
 logs/
+debug.log
+logs/dbt.log
+
+# dbt-generated files
+dbt_packages/
+target/
+target/*.json
+
+# Sensitive files
+profiles.yml
+
+# Python environment files (if using Python)
+*.pyc
+*.pyo
+__pycache__/
+env/
+venv/
+.venv/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor-specific files
+.idea/
+*.swp
+.vscode/
+
+#general
+
