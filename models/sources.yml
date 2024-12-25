@@ -1,0 +1,17 @@
+version: 2
+
+sources: 
+  - name: mexico_toys_db
+    schema: staging
+    tables: 
+      - name: products
+        identifier: raw_products
+      
+      - name: stores
+        identifier: raw_stores
+      
+      - name: sales
+        identifier: raw_sales
+      
+      - name: inventory
+        identifier: raw_inventory
