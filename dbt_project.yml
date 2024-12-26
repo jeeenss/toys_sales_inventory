@@ -35,3 +35,5 @@ models:
     +materialized: view
     src:
       +materialized: table
+    dim:
+      +materialized: table
