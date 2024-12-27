@@ -1,3 +1,8 @@
+{{
+    config(
+        materialized = 'ephemeral'
+    )
+}}
 WITH raw_sales AS (
     SELECT * FROM {{ source("mexico_toys_db","sales")}}
 )
@@ -6,6 +11,6 @@ SELECT
     DATE AS SALE_DATE, 
     STORE_ID, 
     PRODUCT_ID, 
-    UNITS
+    UNITS AS SALE_UNITS
 FROM 
     raw_sales

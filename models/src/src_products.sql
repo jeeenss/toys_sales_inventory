@@ -1,8 +1,3 @@
-{{
-    config(
-        materialized = 'ephemeral'
-    )
-}}
 WITH raw_products AS (
     SELECT * FROM {{ source("mexico_toys_db","products")}}
 )
