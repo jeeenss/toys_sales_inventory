@@ -19,8 +19,12 @@ models:
           - not_null
       - name: product_cost
         description: Cost of the product
+        data_tests:
+          - postive_vals
       - name: product_price
         description: Price of the product
+        data_tests:
+          - postive_vals
 
   - name: dim_stores
     description: Cleansed table which contains information all stores of Mexico Toys
@@ -64,6 +68,11 @@ models:
           - relationships:
               to: ref('dim_products')
               field: product_id
+      - name: stock_on_hand
+        description: total stock on hand on certain products at certain store 
+        data_tests: 
+          - postive_vals
+          
   - name: fact_sales
     description: Cleansed table sales to store all the sale transactions
     columns:
