@@ -14,7 +14,7 @@ SELECT
     PRODUCT_CATEGORY,
     PRODUCT_COST,
     PRODUCT_PRICE,
-    SALE_UNITS
+    SALES_UNITS
 FROM src_sales sales 
     LEFT JOIN {{ ref('dim_stores')}} stores ON sales.STORE_ID = stores.STORE_ID
     LEFT JOIN {{ ref('dim_products')}} products ON sales.PRODUCT_ID = products.PRODUCT_ID

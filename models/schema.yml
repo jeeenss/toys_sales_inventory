@@ -72,7 +72,7 @@ models:
         description: total stock on hand on certain products at certain store 
         data_tests: 
           - postive_vals
-          
+
   - name: fact_sales
     description: Cleansed table sales to store all the sale transactions
     columns:
@@ -99,3 +99,6 @@ models:
           - relationships:
               to: ref('dim_products')
               field: product_id
+data_tests:
+  - name: positive_unit_sales
+    description: total sales unit must be greater than zero
