@@ -1,0 +1,24 @@
+{{ config(
+ materialized = 'table',
+) }}
+WITH fct_sales AS (
+    SELECT 
+    *
+    FROM {{ ref('fact_sales')}}
+)
+SELECT 
+    CONCAT(YEAR(SALE_DATE),
+    CASE 
+        WHEN MONTH(SALE_DATE) < 10 THEN CONCAT('0',MONTH(SALE_DATE))::TEXT
+        ELSE MONTH(SALE_DATE)::TEXT
+    END 
+    )::TEXT YEAR_MONTH,
+    STORE_LOCATION,
+    PRODUCT_NAME,
+    PRODUCT_CATEGORY, 
+    SUM(SALES_UNITS) TOTAL_SALES_UNIT,
+    SUM(SALES_UNITS*PRODUCT_COST) TOTAL_COST,
+    SUM(SALES_UNITS*PRODUCT_PRICE) TOTAL_SALES,
+FROM fct_sales
+GROUP BY 1,2,3,4
+ORDER BY 1,2,3,4
